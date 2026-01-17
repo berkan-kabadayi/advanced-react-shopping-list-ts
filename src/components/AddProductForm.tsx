@@ -12,7 +12,7 @@ function AddProductForm({ onAdd }: AddProductFormProps) {
 
   const handleAdd = () => {
     if(!name || !category || !shop ) {
-        alert("Lutfen butun alanlari doldurunuz.")
+        alert("Please fill in all fields.")
         return
     }
     onAdd({

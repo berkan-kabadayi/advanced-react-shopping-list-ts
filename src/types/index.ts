@@ -10,5 +10,9 @@ export interface Product {
 }
 
 export interface AddProductFormProps {
-    onAdd: (product:Product) => void
+  onAdd: (product: Product) => void;
+}
+
+export interface ProductTableProps {
+  products: Product[];
 }
