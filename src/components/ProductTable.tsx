@@ -7,7 +7,11 @@ const StyledTableCell = styled.td<{ isBought?: boolean }>`
   text-decoration: ${({ isBought }) => (isBought ? "line-through" : "none")};
 `;
 
-function ProductTable({ products }: ProductTableProps) {
+function ProductTable({
+  products,
+  onToggleBought,
+  onDelete,
+}: ProductTableProps) {
   return (
     <Table striped bordered hover>
       <thead>
@@ -35,10 +39,15 @@ function ProductTable({ products }: ProductTableProps) {
               {product.categories}
             </StyledTableCell>
             <td>
-              <Button variant="secondary">
+              <Button
+                variant="secondary"
+                onClick={() => onToggleBought(product.id)}
+              >
                 {product.isBought ? "Purchased" : "To be purchased"}
               </Button>
-              <Button variant="danger">Delete</Button>
+              <Button variant="danger" onClick={() => onDelete(product.id)}>
+                Delete
+              </Button>
             </td>
           </tr>
         ))}
@@ -48,4 +57,3 @@ function ProductTable({ products }: ProductTableProps) {
 }
 
 export default ProductTable;
- 

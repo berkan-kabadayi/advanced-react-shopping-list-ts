@@ -29,6 +29,20 @@ function App() {
     return nameMatch && shopMatch && categoryMatch;
   });
 
+  const handleToggleBought = (id: string) => {
+    setProducts(
+      products.map((product) =>
+        product.id === id
+          ? { ...product, isBought: !product.isBought }
+          : product
+      )
+    );
+  };
+
+  const handleDeleteProduct = (id: string) => {
+    setProducts(products.filter((product) => product.id !== id));
+  };
+
   return (
     <>
       <div className="container mt-4">
@@ -41,7 +55,11 @@ function App() {
           setFilteredShop={setFilteredShop}
           setFilteredCategory={setFilteredCategory}
         />
-        <ProductTable products={filteredProducts} />
+        <ProductTable
+          products={filteredProducts}
+          onToggleBought={handleToggleBought}
+          onDelete={handleDeleteProduct}
+        />
       </div>
     </>
   );
