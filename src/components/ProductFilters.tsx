@@ -1,9 +1,5 @@
 import Form from "react-bootstrap/Form";
-import {
-  shops,
-  categories,
-  type ProductFilterProps,
-} from "../types";
+import { shops, categories, type ProductFilterProps } from "../types";
 
 function ProductFilter({
   filteredName,
@@ -12,7 +8,10 @@ function ProductFilter({
   setFilteredShop,
   filteredCategory,
   setFilteredCategory,
+  filterStatus,
+  setFilterStatus,
 }: ProductFilterProps) {
+  const boughtArray = ["all", "bought", "not-bought"];
   return (
     <>
       <Form.Group className="mb-3">
@@ -56,6 +55,25 @@ function ProductFilter({
             </option>
           ))}
         </Form.Control>
+      </Form.Group>
+      <Form.Group>
+        {boughtArray.map((status) => (
+          <Form.Check
+            type="radio"
+            key={status}
+            label={
+              status === "all"
+                ? "All"
+                : status === "bought"
+                ? "Bought"
+                : "Not Bought"
+            }
+            name="statusFilter"
+            value={status}
+            onChange={() => setFilterStatus(status as typeof filterStatus)}
+            checked={filterStatus === status}
+          />
+        ))}
       </Form.Group>
     </>
   );

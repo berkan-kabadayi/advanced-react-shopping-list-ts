@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import AddProductForm from "./components/AddProductForm";
-import type { Product } from "./types";
+import type { Product, FilterStatusProps } from "./types";
 import ProductTable from "./components/ProductTable";
 import ProductFilter from "./components/ProductFilters";
 
@@ -10,6 +10,7 @@ function App() {
   const [filteredName, setFilteredName] = useState("");
   const [filteredShop, setFilteredShop] = useState("");
   const [filteredCategory, setFilteredCategory] = useState("");
+  const [filterStatus, setFilterStatus] = useState<FilterStatusProps>("all");
 
   const handleAddProduct = (product: Product) => {
     setProducts([...products, product]);
@@ -26,7 +27,12 @@ function App() {
     const categoryMatch =
       !filteredCategory || product.categories === filteredCategory;
 
-    return nameMatch && shopMatch && categoryMatch;
+    const statusMatch =
+      filterStatus === "all" ||
+      (filterStatus === "bought" && product.isBought) ||
+      (filterStatus === "not-bought" && !product.isBought);
+
+    return nameMatch && shopMatch && categoryMatch && statusMatch;
   });
 
   const handleToggleBought = (id: string) => {
@@ -51,9 +57,11 @@ function App() {
           filteredName={filteredName}
           filteredShop={filteredShop}
           filteredCategory={filteredCategory}
+          filterStatus={filterStatus}
           setFilteredName={setFilteredName}
           setFilteredShop={setFilteredShop}
           setFilteredCategory={setFilteredCategory}
+          setFilterStatus={setFilterStatus}
         />
         <ProductTable
           products={filteredProducts}

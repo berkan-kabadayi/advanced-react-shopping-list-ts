@@ -23,7 +23,11 @@ export interface ProductFilterProps {
   filteredName: string;
   filteredShop: string;
   filteredCategory: string;
+  filterStatus: FilterStatusProps;
   setFilteredName: (value: string) => void;
   setFilteredShop: (value: string) => void;
   setFilteredCategory: (value: string) => void;
+  setFilterStatus: (value: FilterStatusProps) => void;
 }
+
+export type FilterStatusProps = "all" | "bought" | "not-bought";
