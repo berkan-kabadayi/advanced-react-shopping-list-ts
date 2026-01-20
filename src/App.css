@@ -1,0 +1,67 @@
+body {
+  background-color: #f4f6f8;
+}
+
+.app-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.app-wrapper > * {
+  margin-bottom: 24px;
+}
+
+.app-wrapper form {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.app-wrapper form:first-of-type {
+  border-left: 6px solid #0d6efd;
+}
+
+.app-wrapper label {
+  font-weight: 600;
+}
+
+.app-wrapper .table {
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.app-wrapper thead th {
+  background: linear-gradient(135deg, #212529, #343a40);
+  color: #ffffff;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.app-wrapper tbody td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.app-wrapper tbody tr:hover {
+  background-color: #f1f3f5;
+}
+
+.app-wrapper tbody td button {
+  margin: 4px;
+  min-width: 140px;
+}
+
+.app-wrapper button {
+  transition: all 0.2s ease;
+}
+
+.app-wrapper button:hover {
+  transform: translateY(-1px);
+}

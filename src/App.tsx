@@ -51,7 +51,7 @@ function App() {
 
   return (
     <>
-      <div className="container mt-4">
+      <div className="container mt-4 app-wrapper">
         <AddProductForm onAdd={handleAddProduct} />
         <ProductFilter
           filteredName={filteredName}
