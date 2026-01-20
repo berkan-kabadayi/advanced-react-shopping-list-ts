@@ -48,3 +48,4 @@ function ProductTable({ products }: ProductTableProps) {
 }
 
 export default ProductTable;
+ 

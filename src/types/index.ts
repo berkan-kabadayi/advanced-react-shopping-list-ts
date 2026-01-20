@@ -16,3 +16,12 @@ export interface AddProductFormProps {
 export interface ProductTableProps {
   products: Product[];
 }
+
+export interface ProductFilterProps {
+  filteredName: string;
+  filteredShop: string;
+  filteredCategory: string;
+  setFilteredName: (value: string) => void;
+  setFilteredShop: (value: string) => void;
+  setFilteredCategory: (value: string) => void;
+}
